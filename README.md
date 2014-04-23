@@ -21,7 +21,7 @@ And then add the transform to the scene. Observe the results!
 
 3. Refactor your addShape function, so that we can pass a string called shape
 
-4. Add a switch statement so that we detect one of 'box', 'cone', 'sphere'
+4. Add a switch statement so that we detect one of 'foo', 'bar', 'fuzz' to map to 'box', 'sphere' or 'cone'
 
 5. Add code to your switch, so that you create either a box,\
 cone or sphere depending on the argument passsed, and add it
