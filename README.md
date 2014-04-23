@@ -11,18 +11,17 @@
 
 == TODO
 
-1. Add a shape (of type box) to the X3D scene
+1. Add a shape (of type box) to the X3D scene using Javascript functions
 
 2. Refactor your code so that rather than adding a shape to
-the scene, we append the shape to a <Transform> element, with
+the scene, we append the shape to a <transform> element, with
 the "translation" attribute set to x, y, z coordinates, e.g.
 <transform translation="1 2 3"></transform>
 And then add the transform to the scene. Observe the results!
 
-3. Refactor your addShape function, so that we can pass a string, either 'box', 'cone', 'sphere'
+3. Refactor your addShape function, so that we can pass a string called shape
 
-4. Add a switch statement so that we can console.log each of
-the arguments passed
+4. Add a switch statement so that we detect one of 'box', 'cone', 'sphere'
 
 5. Add code to your switch, so that you create either a box,\
 cone or sphere depending on the argument passsed, and add it
