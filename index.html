@@ -28,9 +28,8 @@
       <shape id="shape" render="true" ispickable="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1">
 
         <appearance>
-          <material diffuseColor='0.603 0.894 0.909' ></material>
+          <material diffuseColor='1 0.4 1' ></material>
         </appearance>
-        <!--cone solid="true" ccw="true" usegeocache="true" bottomradius="1" height="2" bottom="true" subdivision="32" side="true">
 
         </cone-->
       </shape></transform>
@@ -41,17 +40,38 @@
     // Hello I'm Javascript
     window.onload = function() {
       var click = document.getElementById("click");
-      click.addEventListener("click",
-	function() {
-	  var newShape = document.createElement("box");
-	  var newAttributes = { "render": true, "solid": true, 
-	    "ccw": true, "usegeocache": true, "size": "2,2,2",
-	    "lit": true };
-	  for (var i in newAttributes) {
-	    newShape.setAttribute(i, newAttributes[i]);
-	  }
-	  var content = document.getElementById("shape");
-	  content.appendChild(newShape);
+      
+      var addShape = function(param) {
+	var shapes = {"foo": "box", "bar": "sphere", "fuzz": "cone"};
+	var newShape = document.createElement(shapes[param]);
+	var newAttributes = { "render": true, "solid": true, 
+	  "ccw": true, "usegeocache": true,
+	  "lit": true };
+	for (var i in newAttributes) {
+	  newShape.setAttribute(i, newAttributes[i]);
+	}
+	var content = document.getElementById("shape");
+	content.appendChild(newShape);
+      };
+
+      var deleteShape = function() {
+	box = document.getElementByTagName("box");
+	sphere = document.getElementByTagName("sphere");
+	cone = document.getElementByTagName("cone");
+	var content = document.getElementById("shape");
+	content.removeChild(box);
+	content.removeChild(sphere);
+	content.removeChild(cone);
+	
+      }
+      
+      click.addEventListener("click", function () {
+	  var names = ["foo", "bar", "fuzz"];
+	  var rand = Math.floor(Math.random()*names.length);
+	  addShape(names[rand]);
+      });
+      click.addEventListener("click", function () {
+	  deleteShape();
       });
     }
   </script>
