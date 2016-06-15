@@ -24,7 +24,7 @@
 
         </box>
       </shape> -->
-
+    <transform translation="1 2 3">
       <shape id="shape" render="true" ispickable="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1">
 
         <appearance>
@@ -33,7 +33,7 @@
         <!--cone solid="true" ccw="true" usegeocache="true" bottomradius="1" height="2" bottom="true" subdivision="32" side="true">
 
         </cone-->
-      </shape>
+      </shape></transform>
     </scene>
   </x3d>
 
@@ -51,15 +51,11 @@
 	    newShape.setAttribute(i, newAttributes[i]);
 	  }
 	  var content = document.getElementById("shape");
-	  //console.log(shape[0]);
-	
-//	  for (var i in shape) {
-	    content.appendChild(newShape);
-//	  };
+	  content.appendChild(newShape);
       });
     }
   </script>
 
   <button id="click">Click Me!</button>
-</body>1
+</body>
 </html>
