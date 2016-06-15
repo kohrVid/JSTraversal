@@ -1,81 +1,36 @@
 <!DOCTYPE html >
 <html >
-<head>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <title>Hello World</title>
-  <script type="text/javascript" src="x3dom.js"></script>
-</head>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Hello World</title>
+    <script type="text/javascript" src="x3dom.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
 
-<body style="text-align: center">
+  <body style="text-align: center">
 
- <h1>Hello 3D</h1>
+    <h1>Hello 3D</h1>
 
- <x3d xmlns="http://www.x3dom.org/x3dom" showStat="false" showLog="false" x="0px" y="0px" width="800px" height="600px" altImg="helloX3D-alt.png">
-  <scene>
-    <viewpoint position='0 0 10' ></viewpoint>
-    <scene id="scene" render="true" pickmode="idBuf" dopickpass="true" sorttrans="true" frustumculling="true">
+    <x3d xmlns="http://www.x3dom.org/x3dom" showStat="false" showLog="false" x="0px" y="0px" width="800px" height="600px" altImg="helloX3D-alt.png">
+    <scene>
+      <viewpoint position='0 0 10' ></viewpoint>
+      <scene id="scene" render="true" pickmode="idBuf" dopickpass="true" sorttrans="true" frustumculling="true">
+	<transform id="transform" translation="1 2 3">
+	  <background backUrl='bg.jpg'>
+	  </background>
+	  <shape id="shape" render="true" ispickable="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1">
 
-     <!--  <shape render="true" ispickable="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1">
-        <appearance>
-          <material diffuseColor='0.603 0.894 0.909' ></material>
-        </appearance>
-        <box def="box" solid="true" ccw="true" usegeocache="true" size="5,5,5">
+	    <appearance>
+	      <material id="material" diffuseColor='1 0.4 1' ></material>
+	    </appearance>
 
-        </box>
-      </shape> -->
-    <transform translation="1 2 3">
-      <shape id="shape" render="true" ispickable="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1">
+	    
+	  </shape>
+	</transform>
+      </scene>
+    </x3d>
 
-        <appearance>
-          <material diffuseColor='1 0.4 1' ></material>
-        </appearance>
-
-        </cone-->
-      </shape></transform>
-    </scene>
-  </x3d>
-
-  <script type="text/javascript">
-    // Hello I'm Javascript
-    window.onload = function() {
-      var click = document.getElementById("click");
-      
-      var addShape = function(param) {
-	var shapes = {"foo": "box", "bar": "sphere", "fuzz": "cone"};
-	var newShape = document.createElement(shapes[param]);
-	var newAttributes = { "render": true, "solid": true, 
-	  "ccw": true, "usegeocache": true,
-	  "lit": true };
-	for (var i in newAttributes) {
-	  newShape.setAttribute(i, newAttributes[i]);
-	}
-	var content = document.getElementById("shape");
-	content.appendChild(newShape);
-      };
-
-      var deleteShape = function() {
-	box = document.getElementByTagName("box");
-	sphere = document.getElementByTagName("sphere");
-	cone = document.getElementByTagName("cone");
-	var content = document.getElementById("shape");
-	content.removeChild(box);
-	content.removeChild(sphere);
-	content.removeChild(cone);
-	
-      }
-      
-      click.addEventListener("click", function () {
-	  var names = ["foo", "bar", "fuzz"];
-	  var rand = Math.floor(Math.random()*names.length);
-	  addShape(names[rand]);
-      });
-      click.addEventListener("click", function () {
-	  deleteShape();
-      });
-    }
-  </script>
-
-  <button id="click">Click Me!</button>
-</body>
+    <button id="click">Click Me!</button>
+  </body>
 </html>
